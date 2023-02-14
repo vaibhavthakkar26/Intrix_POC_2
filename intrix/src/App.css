@@ -62,3 +62,8 @@ body{
   margin: 0px;
   box-sizing: border-box;
 }
+
+.dashboard{
+  width: 100%;
+  display: flex;
+}
