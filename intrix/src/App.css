@@ -1,52 +1,4 @@
-.element_col_one{
-  width: 100%;
-}
-.element_col_second{
-  width: 50%;
-}
-.element_col_third{
-  width: 33.33%;
-}
-.element_col_fourth{
- width: 25%; 
-}
-.element_col_fifth{
-  width: 20%;
-}
-.element_col_one_third{
-  width: 30%;
-}
-.element_col_one_six{
-  width: 70%;
-}
-
-h1{
-  font-size: 34px;
-}
-h2{
-  font-size: 28px;
-}
-h3{
-  font-size: 22px;
-}
-h4{
-  font-size: 20px;
-}
-h5{
-  font-size: 18px;
-}
-h6{
-  font-size: 14px;
-}
-a{
-  text-decoration: none;
-}
-p{
-  font-size: 16px;
-}
-
-
-:root{
+:root {
   --intrix_color_primary: #A58C7E;
   --intrix_color_second: #2D333A;
   --intrix_color_accent: #FBF7F4;
@@ -54,16 +6,277 @@ p{
   --intrix_color_light: #FFF;
 
   --intrix_text_accent_color: rgba(45, 51, 58, 0.6);
-  --intrix_text_color: #2D333A; 
+  --intrix_text_color: #2D333A;
+
+  --intrix_font_32: 32px;
+  --intrix_line_height: 48px;
+  --intrix_lett_spc: 0.5px;
+  --intrix_font-weight: 600;
 }
 
-body{
+body {
   padding: 0px;
   margin: 0px;
+  font-family: 'Poppins' !important;
   box-sizing: border-box;
 }
 
-.dashboard{
+/* Common column width */
+
+.element_col_one {
   width: 100%;
+}
+
+.element_col_second {
+  width: 50%;
+}
+
+.element_col_third {
+  width: 33.33%;
+}
+
+.element_col_fourth {
+  width: 25%;
+}
+
+.element_col_fifth {
+  width: 20%;
+}
+
+.element_col_one_third {
+  width: 30%;
+}
+
+.element_col_one_six {
+  width: 70%;
+}
+
+h1 {
+  font-size: 34px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* common column width close */
+
+/* ----- ***** --- Button Common Code --- ***** ----- */
+
+.intrix_btn,
+.intrix_btn2,
+.intrix_form_btn,
+.intrix_form_btn2 {
+  padding: 8px 16px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 16px;
+  /* identical to box height */
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+  margin: 0px 6px 0px 0px;
+}
+
+/* ----- ***** --- Button Common Code --- ***** ----- */
+
+/* ----- ***** --- Form field Common Code --- ***** ----- */
+
+input[type=text],
+input[type=number],
+input[type=password],
+input[type=email],
+.intrix_form_text select {
+  width: 100%;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+  color: #2D333A;
+}
+
+.intrix_form_textarea {
+  width: 100%;
+  padding: 5px;
+  height: 100%;
   display: flex;
+  flex-wrap: wrap;
+}
+
+input:focus-visible,
+input[type=password]:focus-visible,
+.intrix_form_text select:focus-visible {
+  border-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+input[type=text]:hover,
+input[type=password]:hover,
+.intrix_form_text select:hover {
+  opacity: 0.7;
+}
+
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .intrix_login_logo img {
+      width: 30%;
+  }
+}
+
+/* ----- side logo img change ----- */
+@media (max-width: 1281px) {
+  .dash_sec .titles {
+      width: 80%;
+  }
+
+  .dash_sec .functions {
+      width: 20%;
+  }
+}
+
+@media (max-width: 540px) {
+
+  .dashboard,
+  .dash_sec {
+      flex-wrap: wrap;
+  }
+
+  .left-side,
+  .right-side,
+  .dash_sec .titles,
+  .dash_sec .functions {
+      display: flex;
+      width: 100% !important;
+  }
+
+  .left-side .logo,
+  .left-side .logout_btn {
+      width: 15% !important;
+  }
+
+  .left-side .logout_btn {
+      align-items: center;
+  }
+
+  .left-side .tab {
+      display: flex;
+      height: auto;
+      width: 90% !important;
+      overflow-x: auto;
+  }
+
+  .left-side .tab li {
+      width: 16.66% !important;
+  }
+}
+
+@media (max-width:1024px) {
+  .dash_sec .titles {
+      width: 75%;
+  }
+
+  .dash_sec .functions {
+      width: 25%;
+  }
+
+  .data_area .data_head .data_title {
+      width: 60%;
+  }
+
+  .data_area .data_head .data_add {
+      width: 40%;
+  }
+}
+
+@media(max-width:1024px) and (min-width:768px) {
+  .intrix_header img {
+      width: 58px !important;
+      height: 48px !important;
+      top: 10px !important;
+      left: 10px !important;
+  }
+
+  .intrix_form_body {
+      width: 70% !important;
+  }
+
+  .intrix_form_body h2 {
+      font-size: 20px !important;
+      line-height: 32px !important
+  }
+
+  .intrix_form_input {
+      padding: 6px !important;
+      margin-bottom: 6px !important;
+  }
+
+  .intrix_form_inn label {
+      font-size: 13px !important;
+  }
+
+  .intrix_form_foot a {
+      font-size: 13px !important;
+  }
+}
+
+@media (max-width:821px) {
+  .dash_sec .titles {
+      width: 70%;
+  }
+
+  .dash_sec .functions {
+      width: 30%;
+  }
+
+  .data_area .data_head .data_title {
+      width: 50%;
+  }
+
+  .data_area .data_head .data_add {
+      width: 50%;
+  }
+}
+
+@media(max-width:800px) and (min-width:768px) {
+  .intrix_form_foot .element_col_second {
+      width: 100% !important;
+  }
+
+  .intrix_form_foot .element_col_second:last-child {
+      margin-top: 6px;
+      text-align: center !important;
+  }
 }

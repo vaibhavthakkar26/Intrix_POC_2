@@ -1,14 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
-import SideBar from './components/SideBar';
-import Main from './components/Main';
-
+import Layout from './components/Layouts';
+import Login from './components/Login';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Dashboard from './components/Dashboard';
 function App() {
   return (
-    <div class="dashboard">
-    <SideBar/>
-    <Main/>
-    </div>
+    <>
+    <BrowserRouter>
+      <Routes>
+      <Route path='/'element={
+        <Layout>
+          <Dashboard/>
+        </Layout>
+      }/>
+      <Route path='/login' element={<Login/>}/>
+      </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 

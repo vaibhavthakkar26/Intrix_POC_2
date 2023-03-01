@@ -1,19 +1,18 @@
-import React from "react";
-import "./SideBar.css";
-import image1 from "../../assets/image/grid_view_FILL1_wght400_GRAD0_opsz48 1.png";
-import image2 from "../../assets/image/insert_chart_FILL0_wght400_GRAD0_opsz48 1.png"
-import image3 from "../../assets/image/bar_chart_FILL0_wght400_GRAD0_opsz48 1.png"
-import image4 from "../../assets/image/description_FILL0_wght400_GRAD0_opsz48 1.png"
-import image5 from "../../assets/image/layers_FILL0_wght400_GRAD0_opsz48 1.png"
-import image6 from "../../assets/image/settings_FILL0_wght400_GRAD0_opsz48 1.png"
-import image7 from "../../assets/image/logout.png"
-import Logo from "../../assets/image/Logo.png"
-function SideBar (){
-    return(
-        <>
-        <div class="left-side">
-                <div class="logo">
-                    <img src={Logo}/>
+import React from 'react'
+import "./Sidebar.css";
+import group from "../../assets/image/Group.svg";
+import image1 from "../../assets/image/grid_view.svg";
+import image2 from "../../assets/image/insert_chart.svg";
+import image3 from "../../assets/image/bar_chart.svg";
+import image4 from "../../assets/image/description.svg";
+import image5 from "../../assets/image/layers.svg";
+import image6 from "../../assets/image/settings.svg";
+import image7 from "../../assets/image/logout.svg";
+function Sidebar() {
+  return (
+    <div class="intrix_left_side">
+                <div class="logo" >
+                    <img src={group}/>
                 </div>
 
                 <div class="tab">
@@ -65,10 +64,8 @@ function SideBar (){
                         </li>
                     </ul>
                 </div>
-
             </div>
-        </>
-    )
+  )
 }
 
-export default SideBar;
+export default Sidebar;
