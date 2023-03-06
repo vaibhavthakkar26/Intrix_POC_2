@@ -660,38 +660,38 @@
     flex-wrap: wrap;
 }
 .intrix_schedule_form .intrix_form_text{
-    width: 32%;
+    width: 49%;
     margin: 6px auto;
     display: flex;
     flex-wrap: wrap;
 }
-.intrix_schedule_form .intrix_form_text:nth-child(4){
+.intrix_schedule_form .intrix_form_text:nth-child(3){
     width:100%;
 }
-.intrix_schedule_form .intrix_form_text:nth-child(4) label{
+.intrix_schedule_form .intrix_form_text:nth-child(3) label{
     width: 100%;
     text-align: left;
 }
-.intrix_schedule_form .intrix_form_text:nth-child(4) input{
+.intrix_schedule_form .intrix_form_text:nth-child(3) input{
     width: 46%;
     margin: 0 auto;
     padding: 10px;
     border-radius: 4px;
     border: 2px solid rgba(0, 0, 0, 0.5);
 }
-.intrix_schedule_form .intrix_form_text:nth-child(5){
+.intrix_schedule_form .intrix_form_text:nth-child(4){
     width:100%;
 }
-.intrix_schedule_form .intrix_form_text:nth-child(5)>label{
+.intrix_schedule_form .intrix_form_text:nth-child(4)>label{
     width: 100%;
     text-align: left;
 }
-.intrix_schedule_form .intrix_form_text:nth-child(5) div{
+.intrix_schedule_form .intrix_form_text:nth-child(4) div{
     width: auto;
     margin: 0 18px 0px 0px;
     text-align: left;
     display: flex;
 }
-.intrix_schedule_form .intrix_form_text:nth-child(5) div input{
+.intrix_schedule_form .intrix_form_text:nth-child(4) div input{
     margin-right: 4px;
 }

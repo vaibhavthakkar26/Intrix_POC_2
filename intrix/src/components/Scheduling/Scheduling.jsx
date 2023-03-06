@@ -14,54 +14,19 @@ function Scheduling({ open , closeHandler }) {
             <div class="intrix_schedule_form">
               <div class="intrix_form_text">
                 <label>Schedule Name</label>
-                <select id="" name="Database type" value="Database type">
-                  <option value="0" class="intrix_drop">
-                    Select
-                  </option>
-                  <option value="1" class="intrix_drop">
-                    demo 1
-                  </option>
-                  <option value="2" class="intrix_drop">
-                    demo 2
-                  </option>
-                  <option value="3" class="intrix_drop">
-                    demo 3
-                  </option>
-                </select>
+                <input type="text" value=""/>
               </div>
 
-              <div class="intrix_form_text">
-                <label>Runtime Environment</label>
-                <select id="" name="Database type" value="Database type">
-                  <option value="0" class="intrix_drop">
-                    Select
-                  </option>
-                  <option value="1" class="intrix_drop">
-                    demo 1
-                  </option>
-                  <option value="2" class="intrix_drop">
-                    demo 2
-                  </option>
-                  <option value="3" class="intrix_drop">
-                    demo 3
-                  </option>
-                </select>
-              </div>
+              
 
               <div class="intrix_form_text">
                 <label>Process Name</label>
                 <select id="" name="Database type" value="Database type">
-                  <option value="0" class="intrix_drop">
-                    Select
+                  <option value="Data Profiling" class="intrix_drop">
+                      data Profiling
                   </option>
-                  <option value="1" class="intrix_drop">
-                    demo 1
-                  </option>
-                  <option value="2" class="intrix_drop">
-                    demo 2
-                  </option>
-                  <option value="3" class="intrix_drop">
-                    demo 3
+                  <option value="Data Quality" class="intrix_drop">
+                      Data Quality
                   </option>
                 </select>
               </div>

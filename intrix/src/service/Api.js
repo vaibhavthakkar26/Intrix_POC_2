@@ -26,3 +26,9 @@ export const getConnectionTableAndColumns = (id) =>{
 export const connectionDataById = (data) =>{
     return put(`${ENDPOINTURL}/connection`,data);
 }
+
+export const getProfilingScheduleList = (page, size) => {
+    return get(
+      `${ENDPOINTURL}/profilingrule/schedules?page=${page}&size=${size}`
+    );
+  };
