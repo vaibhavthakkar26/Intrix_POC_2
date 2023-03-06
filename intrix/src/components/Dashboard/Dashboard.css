@@ -87,6 +87,7 @@
     width: 30%;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     margin-right: 18px;
 }
 
@@ -564,4 +565,133 @@
 .intrix_btn2 {
     color: var(--intrix_text_color) !important;
     background: var(--intrix_color_light) !important;
+}
+
+
+.accordian{
+    position: relative;
+    background-color: transparent;
+    border:none;
+    padding: 0;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 13px;
+}
+.accordian:after {
+    content: '\002B';
+    color: #000;
+    font-weight: bold;
+    float: right;
+    margin-left: 10px;
+    font-size: 16px;
+    line-height: 18px;
+    outline: 1px solid #000;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+  }
+  .active:after {
+    content: "\2212";
+  }
+  .panel {
+    padding: 0 18px;
+    background-color: #fbf7f4;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+  .data_accordian_row{
+    vertical-align: baseline; 
+}
+
+.data_table_row_col_2{
+    position: relative;
+}
+.data_prevbtn{
+    position: absolute;
+    top:8px;
+    right: 15px;
+    width:100px !important;
+}
+.active ~ .panel {
+    margin-top: 15px !important;
+}
+.panel table tr{
+    background-color: transparent!important;
+    border:none;
+}
+.panel table tr th{
+    padding: 5px 10px;
+}
+.data_btns{
+    width:100%;
+    display: flex;
+    justify-content: end;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+.data_btns .run_btn{
+    width:6%;
+    height:32px;
+    background-color: #fff;
+    border:1px solid #000;
+    border-radius: 3px;
+    font-family: poppins;
+    margin-right: 18px;
+    outline:none;
+}
+.data_btns .sche_btn{
+    width:10%;
+    height:32px;
+    background-color: #fff;
+    border:1px solid #000;
+    border-radius: 3px;
+    font-family: poppins;
+    margin-right: 18px;
+    outline: none;
+}
+
+.intrix_schedule_form {
+    display: flex;
+    flex-wrap: wrap;
+}
+.intrix_schedule_form .intrix_form_text{
+    width: 32%;
+    margin: 6px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.intrix_schedule_form .intrix_form_text:nth-child(4){
+    width:100%;
+}
+.intrix_schedule_form .intrix_form_text:nth-child(4) label{
+    width: 100%;
+    text-align: left;
+}
+.intrix_schedule_form .intrix_form_text:nth-child(4) input{
+    width: 46%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 4px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+}
+.intrix_schedule_form .intrix_form_text:nth-child(5){
+    width:100%;
+}
+.intrix_schedule_form .intrix_form_text:nth-child(5)>label{
+    width: 100%;
+    text-align: left;
+}
+.intrix_schedule_form .intrix_form_text:nth-child(5) div{
+    width: auto;
+    margin: 0 18px 0px 0px;
+    text-align: left;
+    display: flex;
+}
+.intrix_schedule_form .intrix_form_text:nth-child(5) div input{
+    margin-right: 4px;
 }

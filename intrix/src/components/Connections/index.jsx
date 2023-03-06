@@ -22,6 +22,7 @@ function Connections({
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [renderType, setRenderType] = useState();
+  const [description,setDescription] = useState("");
 
   const data = {
     name: connection,
@@ -31,6 +32,7 @@ function Connections({
     password: password,
     user: userName,
     type: dataBaseType,
+    description: description
   };
 
   const defaultRenderHandler = () =>{
@@ -46,6 +48,7 @@ function Connections({
     setUserName(viewData.user);
     setDataBaseType(viewData.type);
     setPassword(viewData.password);
+    setDescription(viewData.viewData);
   };
 
   const dataClear = () => {
@@ -57,6 +60,7 @@ function Connections({
     setUserName("");
     setDataBaseType("");
     setPassword("");
+    setDescription("");
   };
 
   const dataHandler = async () => {
@@ -65,7 +69,6 @@ function Connections({
         ...data,
         id: editConnection,
       });
-      console.log("090909",editDataHandler);
       if (editDataHandler.success) {
         dataClear();
         closeHandler();
@@ -100,7 +103,7 @@ function Connections({
   const testConnectionHandler = async () => {
     const testConnectionData = await testConnection(data);
     console.log("testConnectionData",testConnectionData);
-    if (testConnectionData.success) {
+    if (testConnectionData.message.isConnected) {
       setRenderType(1);
       setTimeout(() => {
         setRenderType(0);
@@ -122,6 +125,7 @@ function Connections({
     setUserName(data.data.user);
     setDataBaseType(data.data.type);
     setPassword(data.data.password);
+    setDescription(data.data.description);
   };
 
   useEffect(() => {
@@ -145,7 +149,7 @@ function Connections({
             <div class="intrix_model_inner">
               <div class="intrix_model_wrap">
                 <div class="intrix_wrap_header">
-                  <h3> {connection ? connection : `New Connection Configuration`} </h3>
+                  <h3> {editConnectionData ? connection : `New Connection Configuration`} </h3>
                   <div
                     class="intrix_close"
                     onClick={() => [closeHandler(), dataClear()]}
@@ -173,6 +177,14 @@ function Connections({
                     </div>
                     <div class="intrix_form_text">
                       <input
+                        type="text"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        placeholder="description Name"
+                      />
+                    </div>
+                    <div class="intrix_form_text">
+                      <input
                         value={port}
                         type="number"
                         onChange={(e) => setPort(e.target.value)}
@@ -192,9 +204,12 @@ function Connections({
                         <option value="MySql" class="intrix_drop">
                           MySql
                         </option>
+                        <option value="Postgresql" class="intrix_drop">
+                          Postgresql
+                        </option>
                       </select>
                     </div>
-                    <div class="intrix_form_textarea">
+                    <div class="intrix_form_text">
                       <input
                         type="text"
                         onChange={(e) => setDataBaseName(e.target.value)}

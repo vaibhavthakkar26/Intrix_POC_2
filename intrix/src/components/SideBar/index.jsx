@@ -19,7 +19,7 @@ function Sidebar() {
                     <ul>
                         <li>
                             <a href="#">
-                                <img src={image1}/>
+                                <img src={image1} />
                             </a>
                         </li>
 

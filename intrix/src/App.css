@@ -280,3 +280,11 @@ input[type=password]:hover,
       text-align: center !important;
   }
 }
+
+
+.intrix_model_open {
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99999;
+  opacity: 1;
+  overflow: hidden;
+}

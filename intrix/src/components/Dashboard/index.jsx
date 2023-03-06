@@ -23,7 +23,7 @@ function Dashboard() {
     }
 
     const getConnectionHandler = async() =>{
-      const connectionList = await getConnectionList();
+      const connectionList = await getConnectionList(0,0);
       setConnectionData(connectionList.data);
     }
 
@@ -66,10 +66,10 @@ function Dashboard() {
             <h2>Connection List </h2>
           </div>
           <div class="data_add">
-            <div class="search_field">
+            {/* <div class="search_field">
               <i class="fa fa-search"></i>
               <input name="search" placeholder="Search..." />
-            </div>
+            </div> */}
             <button id="" onClick={()=>setOpen(true)} class="intrix_open">
               {" "}
               <i class="fa fa-plus"></i> New{" "}
@@ -83,19 +83,19 @@ function Dashboard() {
         <table>
           <tr>
             <td>
-              Connection Name <i class="fa fa-chevron-down"></i>
+              Connection Name 
             </td>
             <td>
-              Type <i class="fa fa-chevron-down"></i>
+              Type 
             </td>
             <td>
-              Server Name <i class="fa fa-chevron-down"></i>
+              Server Name 
             </td>
             <td>
-             Port <i class="fa fa-chevron-down"></i>
+             Port 
             </td>
             <td>
-              Created Date <i class="fa fa-chevron-down"></i>
+              Created Date  
             </td>
             <td> Action</td>
           </tr>
