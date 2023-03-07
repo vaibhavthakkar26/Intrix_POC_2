@@ -18,6 +18,8 @@ function DataProfile() {
   const [checkedState,setCheckedState] = useState(new Array(10).fill(false));
   const [checkedName,setCheckedName] = useState([]);
   const [finalName,setFinalName] = useState([]);
+  const [tableName,setTableName] = useState("");
+
   const closeHandler = () => {
     setOpen(false);
   };
@@ -32,22 +34,12 @@ function DataProfile() {
     if (connectionlistObject.success) {
       setConnectionListData(connectionlistObject.data);
     }
-    console.log(
-      "🚀 ~ file: index.jsx:26 ~ connectionIdHandler ~ connectionlistObject:",
-      connectionlistObject
-    );
-    // setConnectionListData();
   };
 
 
   useEffect(() => {
       connectionListHandler();
     }, []);
-
-
-    
-
-   
    
     const checkedHandler = (e) =>{
         const {value,checked } = e.target;
@@ -59,13 +51,6 @@ function DataProfile() {
         }
     }
 
-    // checkedName.map((res)=>{
-    //     finalName.push({
-    //         "name":res
-    //     })
-    // })
-    
-    console.log("checkedName",checkedName);
     
 
   return (
@@ -140,7 +125,7 @@ function DataProfile() {
                       <input type="checkbox" />
                       <button
                         class="accordian"
-                        onClick={() => setPannelActive(!pannelActive)}
+                        onClick={() => [setPannelActive(!pannelActive),setTableName(res.tableName)]}
                       >
                         {res.tableName}
                       </button>
@@ -187,7 +172,7 @@ function DataProfile() {
             </div>
           </div>
         )}
-        <Scheduling open={open} closeHandler={closeHandler} />
+        <Scheduling open={open} closeHandler={closeHandler} columnData={checkedName} tableName={tableName} connectionId ={selectedId}/>
       </div>
     </>
   );
