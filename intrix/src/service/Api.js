@@ -31,4 +31,8 @@ export const getProfilingScheduleList = (page, size) => {
     return get(
       `${ENDPOINTURL}/profilingrule/schedules?page=${page}&size=${size}`
     );
-  };
+};
+
+export const profileScheduleHandler = (data) =>{
+    return post(`${ENDPOINTURL}/profilingrule/schedule`,data);
+}

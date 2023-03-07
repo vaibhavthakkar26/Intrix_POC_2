@@ -16,14 +16,17 @@ function Dashboard() {
     const [connectionViewData,setConnectionViewData] = useState();
     const [editConnection,setEditConnection] = useState();
     const [editConnectionData,setEditConnectionData] = useState();
+    const [paginationNumber,setPaginationNumber] = useState();
     
     const closeHandler = () =>{
         setOpen(false);
-        getConnectionHandler();
+        getConnectionHandler(0,0);
+        setPaginationNumber(1);
+
     }
 
-    const getConnectionHandler = async() =>{
-      const connectionList = await getConnectionList(0,0);
+    const getConnectionHandler = async(page,size) =>{
+      const connectionList = await getConnectionList(page,size);
       setConnectionData(connectionList.data);
     }
 
@@ -41,7 +44,8 @@ function Dashboard() {
     }
 
     useEffect(()=>{
-      getConnectionHandler();
+      getConnectionHandler(0,0);
+      setPaginationNumber(1);
     },[]);
 
   return (
@@ -66,10 +70,6 @@ function Dashboard() {
             <h2>Connection List </h2>
           </div>
           <div class="data_add">
-            {/* <div class="search_field">
-              <i class="fa fa-search"></i>
-              <input name="search" placeholder="Search..." />
-            </div> */}
             <button id="" onClick={()=>setOpen(true)} class="intrix_open">
               {" "}
               <i class="fa fa-plus"></i> New{" "}
@@ -80,6 +80,8 @@ function Dashboard() {
 
       {/* <!-- table --> */}
       <div class="dash_table">
+        {
+          connectionData.length > 0 && 
         <table>
           <tr>
             <td>
@@ -126,7 +128,12 @@ function Dashboard() {
             })
           }
         </table>
+        }
       </div>
+
+      {
+        connectionData.length === 0 &&  <div class="dash_table"> <h1> Data Not Found</h1></div>
+      }
 
       <div class="dash_footer">
         <div class="dash_foot_inn">
@@ -137,16 +144,16 @@ function Dashboard() {
             5 Rows <i class=""></i>
           </div>
           <div class="intrix_pagination">
-            <a href="#">
+            <a>
               <i class="fa fa-chevron-left"></i>
             </a>
-            <a href="#">1</a>
-            <a href="#" class="active">
+            <a onClick={()=>[setPaginationNumber(1),getConnectionHandler(1,5)]} className={`${paginationNumber == 1 ?"active":''}`}>1</a>
+            <a className={`${paginationNumber == 2 ? "active":''}`} onClick={()=> [setPaginationNumber(2),getConnectionHandler(2,5)]}>
               2
             </a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">
+            <a className={`${paginationNumber == 3 ?"active":''}`} onClick={()=>[setPaginationNumber(3),getConnectionHandler(3,5)]}>3</a>
+            <a className={`${paginationNumber == 4 ?"active":''}`} onClick={()=>[setPaginationNumber(4),getConnectionHandler(4,5)]}>4</a>
+            <a>
               <i class="fa fa-chevron-right"></i>
             </a>
           </div>

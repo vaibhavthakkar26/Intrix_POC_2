@@ -8,31 +8,33 @@ import image4 from "../../assets/image/description.svg";
 import image5 from "../../assets/image/layers.svg";
 import image6 from "../../assets/image/settings.svg";
 import image7 from "../../assets/image/logout.svg";
+import { useNavigate ,Link} from "react-router-dom";
 function Sidebar() {
+    const navigate = useNavigate();
   return (
     <div class="intrix_left_side">
                 <div class="logo" >
-                    <img src={group}/>
+                    <img src={group} onClick={()=> navigate('/')}/>
                 </div>
 
                 <div class="tab">
                     <ul>
                         <li>
-                            <a href="#">
-                                <img src={image1} />
-                            </a>
+                            <Link to="/">
+                                <img src={image1} onClick={()=> navigate('/')}/>
+                            </Link>
                         </li>
 
                         <li>
-                            <a href="#">
+                            <Link to="/Data-profile">
                                 <img src={image2}/>
-                            </a>
+                            </Link>
                         </li>
 
                         <li>
-                            <a href="#">
+                            <Link to="/schedule-list">
                                 <img src={image3}/>
-                            </a>
+                            </Link>
                         </li>
 
                         <li>

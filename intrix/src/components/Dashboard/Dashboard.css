@@ -593,9 +593,9 @@
     top: 0px;
     bottom: 0px;
   }
-  .active:after {
+  /* .active:after {
     content: "\2212";
-  }
+  } */
   .panel {
     padding: 0 18px;
     background-color: #fbf7f4;
@@ -603,6 +603,8 @@
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
+
+  
 
   .data_accordian_row{
     vertical-align: baseline; 

@@ -1,31 +1,23 @@
 import React, { useState } from "react";
-
+import { profileScheduleHandler } from "../../service/Api";
+import { useNavigate } from "react-router-dom";
+import Success from "../Success";
+import Error from "../Error";
 function Scheduling({ open , closeHandler,columnData,tableName ,connectionId}) {
+  const navigate = useNavigate();
   const [scheduleName,setScheduleName] = useState("");
- 
   const [processName,setProcessName] = useState("");
-  
   const [startDate,setStartDate] = useState("");
-  
-  
   const [endDate,setEndDate] = useState("");
-  
   const [frequency,setFrequency] = useState("");
-  
+  const [renderType,setRenderType] = useState();  
   
   console.log("open",open)
 
 
-  const submitHandler = () =>{
-    console.log("🚀 ~ file: Scheduling.jsx:5 ~ Scheduling ~ scheduleName:", scheduleName);
-    console.log("🚀 ~ file: Scheduling.jsx:7 ~ Scheduling ~ processName:", processName);
-    console.log("🚀 ~ file: Scheduling.jsx:9 ~ Scheduling ~ startDate:", startDate);
-    console.log("🚀 ~ file: Scheduling.jsx:12 ~ Scheduling ~ endDate:", endDate);
-    console.log("🚀 ~ file: Scheduling.jsx:14 ~ Scheduling ~ frequency:", frequency);
-    console.log("🚀 ~ file: Scheduling.jsx:4 ~ Scheduling ~ tableName:", tableName)
-    console.log("🚀 ~ file: Scheduling.jsx:4 ~ Scheduling ~ columnData:", columnData)
+  const submitHandler = async () =>{
     const data = {
-      "connectionId":connectionId,
+      "connectionId":parseInt(connectionId),
       "selectedData":[
         {
           "tableName":tableName,
@@ -40,12 +32,34 @@ function Scheduling({ open , closeHandler,columnData,tableName ,connectionId}) {
         "frequency":frequency
       }
     } 
-    console.log("data",data);
-    // const dataHandler = await 
+    const profileSchedule = await profileScheduleHandler(data);
+    if(profileSchedule.success){
+      closeHandler();
+      setRenderType(1);
+        setTimeout(() => {
+          navigate('/schedule-list');
+        }, 3000);
+    }else{
+      setRenderType(2);
+        setTimeout(() => {
+          setRenderType(0);
+        }, 3000);
+    }
   }
-  
-  return (
-    <div class={`intrix_model_main ${open ? "intrix_model_open" : ""}`}>
+
+  const defaultRenderHandler = () =>{
+    setRenderType(0);
+  }
+
+  const scheduleRender = () =>{
+    switch(renderType){
+      case 1:
+        return <Success close={defaultRenderHandler}/>
+      case 2:
+        return <Error close={defaultRenderHandler}/>;
+      default:
+        return(
+<div class={`intrix_model_main ${open ? "intrix_model_open" : ""}`}>
       <div class="intrix_model_inner" style={{width:"800px"}}>
         <div class="intrix_model_wrap">
           <div class="intrix_wrap_header">
@@ -122,6 +136,12 @@ function Scheduling({ open , closeHandler,columnData,tableName ,connectionId}) {
         </div>
       </div>
     </div>
+        )
+    }
+  }
+  
+  return (
+    scheduleRender()
   );
 }
 
